@@ -1,5 +1,4 @@
 package com.example.incir.retrofitsketch;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.StrictMode;

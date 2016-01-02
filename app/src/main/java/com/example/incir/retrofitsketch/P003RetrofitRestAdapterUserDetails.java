@@ -39,7 +39,7 @@ public class P003RetrofitRestAdapterUserDetails extends Activity {
         ListView listViewP126=(ListView)findViewById(R.id.listViewP003);
         listViewP126.setAdapter(listAdapter);
 
-        listAdapter.addAll(service.searchUsers("nelsonlaquet").items);
+        listAdapter.addAll(service.searchUsers("githubmet").items);  //nelsonlaquet
 
         listViewP126.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
@@ -121,7 +121,7 @@ public class P003RetrofitRestAdapterUserDetails extends Activity {
 
         @Override
         public String toString() {
-            return "UserSummary{"+"loginid='"+login+"\''+"+", id='"+id+"\''+"+")";
+            return "UserSummary ( "+"loginid= '"+login+"', id='"+id+"' )";
         }
 
     }

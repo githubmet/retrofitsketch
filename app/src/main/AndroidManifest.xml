@@ -26,6 +26,8 @@
 
         <activity android:name=".P003RetrofitRestAdapterUserDetails"></activity>
 
+        <activity android:name=".P004RetrofitAndJson"></activity>
+
     </application>
 
 </manifest>
