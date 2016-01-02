@@ -31,7 +31,7 @@ public class P002RetrofitRestAdapterUserSearch extends Activity {
         ListView listViewP126=(ListView)findViewById(R.id.listViewP002);
         listViewP126.setAdapter(listAdapter);
 
-        listAdapter.addAll(service.searchUsers("githubmet").items);  //nelsonlaquet
+        listAdapter.addAll(service.searchUsers("nelsonlaquet").items);
 
     }
 

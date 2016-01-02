@@ -39,7 +39,7 @@ public class P003RetrofitRestAdapterUserDetails extends Activity {
         ListView listViewP126=(ListView)findViewById(R.id.listViewP003);
         listViewP126.setAdapter(listAdapter);
 
-        listAdapter.addAll(service.searchUsers("githubmet").items);  //nelsonlaquet
+        listAdapter.addAll(service.searchUsers("nelsonlaquet").items);
 
         listViewP126.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {

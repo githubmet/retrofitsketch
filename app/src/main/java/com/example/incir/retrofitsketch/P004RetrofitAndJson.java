@@ -21,7 +21,7 @@ public class P004RetrofitAndJson extends Activity {
         setContentView(R.layout.p001retrofitrestadapterlist);
 
         RestAdapter restAdapter=new RestAdapter.Builder()
-                .setEndpoint("http://services.hanselandpetal.com/")
+                .setEndpoint("http://services.hanselandpetal.com")
                 .build();
 
         FlowersInterface service=restAdapter.create(FlowersInterface.class);

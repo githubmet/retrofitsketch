@@ -28,6 +28,8 @@
 
         <activity android:name=".P004RetrofitAndJson"></activity>
 
+        <activity android:name=".P005PicassoAndRetrofit"></activity>
+
     </application>
 
 </manifest>
