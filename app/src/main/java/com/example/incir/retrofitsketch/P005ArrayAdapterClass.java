@@ -38,8 +38,8 @@ public class P005ArrayAdapterClass extends ArrayAdapter<P005PicassoAndRetrofit.P
 
          ImageView imageViewCustomRowP005=(ImageView)view.findViewById(R.id.imageViewCustomRowP005);
         TextView textViewCustomRowP005=(TextView)view.findViewById(R.id.textViewCustomRowP005);
-        textViewCustomRowP005.setTextColor(Color.BLACK);
-       // textViewCustomRowP005.setTypeface(null,Typeface.BOLD);
+        //textViewCustomRowP005.setTextColor(Color.BLACK);
+        textViewCustomRowP005.setTypeface(null,Typeface.BOLD);
         P005PicassoAndRetrofit.P005FlowerStrongClass Flower= flowerList.get(position);
         Picasso.with(context)
                 .load(UrlPhoto+Flower.getPhoto())
@@ -47,7 +47,7 @@ public class P005ArrayAdapterClass extends ArrayAdapter<P005PicassoAndRetrofit.P
                 .into(imageViewCustomRowP005);
 
         textViewCustomRowP005.setText("Id=" + Flower.getProductId() + "\nName=" + Flower.getName() + "\nCategory=" + Flower.getCategory() +
-                "\nPrice=" + Flower.getPrice() + "\nInsturction=" + Flower.getInstructions());
+                "\nPrice=" + Flower.getPrice() + "\nInsturction=" + Flower.getInstructions()+"\nBitmap="+Flower.getBitmap());
 
         return view;
     }

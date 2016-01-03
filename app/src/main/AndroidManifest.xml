@@ -30,6 +30,8 @@
 
         <activity android:name=".P005PicassoAndRetrofit"></activity>
 
+        <activity android:name=".P123PicassoAndRetrofit"></activity>
+
     </application>
 
 </manifest>

@@ -49,7 +49,6 @@ public class P005PicassoAndRetrofit extends ListActivity { //Activity {
         public void getData(Callback<List<P005FlowerStrongClass>> resoponse);  //List<P005FlowerStrongClass> listpP005FlowerStrongClasses();  //arastir neden boyle dusundun
     }
     public static class P005FlowerStrongClass {
-
         private int productId;
         private String name;
         private String category;
