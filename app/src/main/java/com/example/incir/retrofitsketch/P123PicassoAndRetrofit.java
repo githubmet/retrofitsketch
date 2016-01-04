@@ -37,8 +37,8 @@ public class P123PicassoAndRetrofit extends ListActivity {
         service.getFlowersData(new Callback<List<P123FlowersStronglyType>>() {
             @Override
             public void success(List<P123FlowersStronglyType> p123FlowersStronglyTypes, Response response) {
-                ArrayAdapter arrayAdapter=new P123ArrayAdapter(getApplicationContext(),R.layout.p123customrow,p123FlowersStronglyTypes);
-                setListAdapter(arrayAdapter);
+                ListAdapter listAdapter=new P123ArrayAdapter(getApplicationContext(),R.layout.p123customrow,p123FlowersStronglyTypes);
+                setListAdapter(listAdapter);
             }
 
             @Override

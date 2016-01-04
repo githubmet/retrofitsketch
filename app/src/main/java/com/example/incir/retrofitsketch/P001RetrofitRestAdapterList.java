@@ -32,18 +32,26 @@ public class P001RetrofitRestAdapterList extends Activity {
         listAdapter.addAll(service.getPublicGist());
 
     }
-
+    public interface GithubService{
+        @GET("/gists/public")  //url lin ednpoint ini belirtioyruz
+        List<Gist> getPublicGist();
+    }
     private class Gist{
         public String id;
-        public HashMap<String, GistFile> files;  //eger files a baska bir isim vermek istiyor isen @serialzi.. attribute kullan
+       // public HashMap<String, GistFile> files;  //eger files a baska bir isim vermek istiyor isen @serialzi.. attribute kullan
 
-        @Override
+  /*      @Override
         public String toString() {
             String output=id + ": ";
             for(Map.Entry<String,GistFile> file: files.entrySet()){
                 output +=file.getKey()+"="+file.getValue().type+", ";
             }
             return output;
+        }*/
+
+        @Override
+        public String toString() {
+            return "id='" + id + '\'';
         }
     }
     private class GistFile{
@@ -51,9 +59,6 @@ public class P001RetrofitRestAdapterList extends Activity {
         public String filename;
     }
 
-    public interface GithubService{
-        @GET("/gists/public")  //url lin ednpoint ini belirtioyruz
-        List<Gist> getPublicGist();
-    }
+
 }
 
