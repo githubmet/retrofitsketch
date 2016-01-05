@@ -2,16 +2,19 @@ package com.example.incir.retrofitsketch;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.http.GET;
 import retrofit.Callback;
+import retrofit.Endpoint;
 
 import java.util.List;
+
+import com.google.gson.annotations.SerializedName;
 
 public class P006GithubRetrofitSade extends Activity {
     @Override
@@ -19,8 +22,21 @@ public class P006GithubRetrofitSade extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p006githubretrofitsade);
 
+        Endpoint endpoint=new Endpoint() {
+            @Override
+            public String getUrl() {
+                return "https://api.github.com";
+            }
+
+            @Override
+            public String getName() {
+                return null;
+            }
+        };
+
+
         RestAdapter restAdapter=new RestAdapter.Builder()
-                .setEndpoint("https://api.github.com")
+                .setEndpoint(endpoint.getUrl()) //endpoint daha once tanimlanmali.
                 .build();
 
         GithubInterface service=restAdapter.create(GithubInterface.class);
@@ -44,79 +60,20 @@ public class P006GithubRetrofitSade extends Activity {
         @GET("/gists/public")  //url lin ednpoint ini belirtioyruz
         void getGithubData(Callback <List<GithubStronglyClass>> callback);
     }
+
     public class GithubStronglyClass{
-        private String id;
+        @SerializedName("id")
+        private String myId;
+        @SerializedName("description")
+        private String MyDescription;
 
-        public String getId() {
-            return id;
+        public String getMyId() {
+            return myId;
+        }
+
+        public String getMyDescription() {
+            return MyDescription;
         }
     }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import android.app.Activity;
-import android.app.ListActivity;
-import android.os.Bundle;
-import android.os.StrictMode;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import retrofit.RestAdapter;
-import retrofit.http.GET;
-import java.util.List;
-
-public class P006GithubRetrofitSade extends Activity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.p006githubretrofitsade);
-
-        //StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().build()); //simdi bunu ortadan kaldiracagiz
-        RestAdapter restAdapter=new RestAdapter.Builder()
-                .setEndpoint("https://api.github.com")
-                .build();
-
-        GithubInterface service=restAdapter.create(GithubInterface.class);
-
-        ArrayAdapter<Object> arrayAdapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1);
-        ListView listViewSadeP006=(ListView)findViewById(R.id.listViewSadeP006);
-        listViewSadeP006.setAdapter(arrayAdapter);
-
-        arrayAdapter.addAll(service.getPublicGist());
-
-    }
-    public interface GithubInterface{
-        @GET("/gists/public")  //url lin ednpoint ini belirtioyruz
-        List<GithubStronglyClass> getPublicGist();
-    }
-    private class GithubStronglyClass{
-        public String id;
-
-        @Override
-        public String toString() {
-            return  "id='" + id + '\'';
-        }
-    }
-}*/
