@@ -34,6 +34,11 @@
 
         <activity android:name=".P007GithubUserRepos"></activity>
 
+        <activity android:name=".P008GithubPublicGists"></activity>
+
+        <activity android:name=".P009GithubUsers"></activity>
+        <activity android:name=".P009UserInfo"></activity>
+
         <activity android:name=".P123PicassoAndRetrofit"></activity>
 
     </application>

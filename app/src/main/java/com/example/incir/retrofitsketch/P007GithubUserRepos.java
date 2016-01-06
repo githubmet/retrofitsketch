@@ -72,8 +72,8 @@ public class P007GithubUserRepos extends Activity {
         private String myDescription;
 
         @SerializedName("owner")
-        private Map<String,String> mapOwner;
-
+        private Map<String,String> mapOwner;  //bu sekilde sanirsam tum dizi verilerini aldigimiz icin sakincali
+        //Biz bir sonraki basamakta yapmamiz gereken sadece gerekli verileri almayi deneyelim.
         public Map<String, String> getMapOwner() {
             return mapOwner;
         }
