@@ -51,10 +51,8 @@ public class P008GithubPublicGists extends Activity {
                 ArrayAdapter arrayAdapter= new P008ArrayAdapterPublicGists(getApplicationContext(),R.layout.p008publicgistscustomrow,githubPublicGistsStrongs);
                 listViewPublicGistsP008.setAdapter(arrayAdapter);
             }
-
             @Override
             public void failure(RetrofitError retrofitError) {
-
             }
         });
 
@@ -65,16 +63,11 @@ public class P008GithubPublicGists extends Activity {
         private String MyId;
         @SerializedName("url")
         private String MyUrl;
-        @SerializedName("owner")
-        private HashMap<String,String> MyHashMapOwner;
+        @SerializedName("files")
+        private HashMap<String,filesStrong> MyHashMapFiles;
 
-        public HashMap<String, String> getMyHashMapOwner() {
-            if(MyHashMapOwner.isEmpty()){
-                MyHashMapOwner.put("id","null");
-                MyHashMapOwner.put("login","null");
-                MyHashMapOwner.put("avatar_url","https://avatars.githubusercontent.com/u/9884282?v=3");
-            }
-            return MyHashMapOwner;
+        public HashMap<String, filesStrong> getMyHashMapFiles() {
+            return MyHashMapFiles;
         }
         public String getMyId() {
             return MyId;  //dikkat burada da siz developer lar bu veri ilede renk v.b. ile oynayabilmek istemelisiniz.
@@ -85,6 +78,11 @@ public class P008GithubPublicGists extends Activity {
         }
 
 
+    }
+    public class filesStrong{
+        public String filename;
+        public String type;
+        public String language;
     }
 
     //gecici ve cache bellek ortami olan GithubPublicGistsStrong Class ina dokunmadan ulasabilmek icin bize bir KOPRU lazim (interface)

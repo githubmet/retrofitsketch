@@ -1,4 +1,5 @@
 package com.example.incir.retrofitsketch;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -43,17 +44,15 @@ public class P001RetrofitRestAdapterList extends Activity {
         @Override
         public String toString() {
             String output=id + ": ";
-            for(Map.Entry<String,GistFile> file: files.entrySet()){
-                output +=file.getKey()+"="+file.getValue().type+", ";
-            }
+            for(Map.Entry<String,GistFile> file: files.entrySet()){        //buradaki key degeri JSON objelerinden biri olan "files" array objesinin icersindeki
+                output +=file.getKey()+"="+file.getValue().type+", ";      //JSON arrayinin adidir(key), value degerleri icin alttaki sinif ile veri
+            }                                                              //cache store alanlari olusturman gerekir.
             return output;
         }
     }
     private class GistFile{
         public String type;
-        public String filename;
     }
-
-
 }
+
 

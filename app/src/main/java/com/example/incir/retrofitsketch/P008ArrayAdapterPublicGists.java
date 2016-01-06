@@ -31,23 +31,22 @@ public class P008ArrayAdapterPublicGists extends ArrayAdapter<P008GithubPublicGi
         LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view= layoutInflater.inflate(R.layout.p008publicgistscustomrow,parent,false);
 
-        ImageView imageViewGistsCustomRowP008= (ImageView)view.findViewById(R.id.imageViewGistsCustomRowP008);
         TextView textViewGistIdP008= (TextView)view.findViewById(R.id.textViewGistIdP008);
         TextView textViewGistUrlP008= (TextView)view.findViewById(R.id.textViewGistUrlP008);
-        TextView textViewOwnerIdP008= (TextView)view.findViewById(R.id.textViewOwnerIdP008);
-        TextView textViewOwnerLoginP008= (TextView)view.findViewById(R.id.textViewOwnerLoginP008);
+        TextView textViewFilesP008= (TextView)view.findViewById(R.id.textViewFilesP008);
 
         P008GithubPublicGists.GithubPublicGistsStrong githubPublicGistsStrong= githubPublicGistsStrongList.get(position);
-        textViewGistIdP008.setText(githubPublicGistsStrong.getMyId());
-        textViewGistUrlP008.setText(githubPublicGistsStrong.getMyUrl());
+        textViewGistIdP008.setText("Id="+githubPublicGistsStrong.getMyId());
+        textViewGistUrlP008.setText("Url="+githubPublicGistsStrong.getMyUrl());
 
-        HashMap<String,String> haspMapOwner= githubPublicGistsStrong.getMyHashMapOwner();
+        HashMap<String,P008GithubPublicGists.filesStrong> hashMapfilesStrong= githubPublicGistsStrong.getMyHashMapFiles();
 
-            String ownerId = String.valueOf(haspMapOwner.get("id"));
-            String ownerLogin = String.valueOf(haspMapOwner.get("login"));
-            textViewOwnerIdP008.setText(ownerId);
-            textViewOwnerLoginP008.setText(ownerLogin);
-        
+        String katar="";
+        for(P008GithubPublicGists.filesStrong gex : hashMapfilesStrong.values()){
+            katar +="FileName="+ gex.filename+"\nType="+gex.type+"\nLanguage="+gex.language;
+        }
+        textViewFilesP008.setText(katar);
+
         return view;
     }
 }

@@ -41,6 +41,8 @@
 
         <activity android:name=".P123PicassoAndRetrofit"></activity>
 
+        <activity android:name=".P124MapExample"></activity>
+
     </application>
 
 </manifest>
