@@ -40,12 +40,13 @@ public class P008ArrayAdapterPublicGists extends ArrayAdapter<P008GithubPublicGi
         textViewGistUrlP008.setText("Url="+githubPublicGistsStrong.getMyUrl());
 
         HashMap<String,P008GithubPublicGists.filesStrong> hashMapfilesStrong= githubPublicGistsStrong.getMyHashMapFiles();
-
         String katar="";
         for(P008GithubPublicGists.filesStrong gex : hashMapfilesStrong.values()){
-            katar +="FileName="+ gex.filename+"\nType="+gex.type+"\nLanguage="+gex.language;
+            katar +="FileName="+ gex.getFilename()+"\nType="+gex.getType()+"\nLanguage="+gex.getLanguage();
         }
         textViewFilesP008.setText(katar);
+
+
 
         return view;
     }

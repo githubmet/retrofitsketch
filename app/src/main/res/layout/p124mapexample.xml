@@ -38,4 +38,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView3P124"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button4P124"
+        android:onClick="onClick4P124"
+        android:text="Iterator"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4P124"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button5P124"
+        android:onClick="onClick5P124"
+        android:text="get a class members's number"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5P124"/>
 </LinearLayout>

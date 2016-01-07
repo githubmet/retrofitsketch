@@ -58,7 +58,7 @@ public class P002RetrofitRestAdapterUserSearch extends Activity {
         List<Gist> getPublicGist();
 
         @GET("/search/users")
-        UsersSearchResult searchUsers(@Query("q") String query);
+        UsersSearchResult searchUsers(@Query("q") String query);  //https://api.github.com/search/users?q=mojombo
     }
     private class UsersSearchResult{
         public int total_count;

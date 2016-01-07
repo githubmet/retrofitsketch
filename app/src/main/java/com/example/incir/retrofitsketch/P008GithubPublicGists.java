@@ -65,10 +65,10 @@ public class P008GithubPublicGists extends Activity {
         private String MyUrl;
         @SerializedName("files")
         private HashMap<String,filesStrong> MyHashMapFiles;
-
         public HashMap<String, filesStrong> getMyHashMapFiles() {
             return MyHashMapFiles;
         }
+
         public String getMyId() {
             return MyId;  //dikkat burada da siz developer lar bu veri ilede renk v.b. ile oynayabilmek istemelisiniz.
         }
@@ -80,10 +80,20 @@ public class P008GithubPublicGists extends Activity {
 
     }
     public class filesStrong{
-        public String filename;
-        public String type;
-        public String language;
+    private String filename;
+    private String type;
+    private String language;
+
+    public String getFilename() {
+        return filename;
     }
+    public String getType() {
+        return type;
+    }
+    public String getLanguage() {
+        return language;
+    }
+}
 
     //gecici ve cache bellek ortami olan GithubPublicGistsStrong Class ina dokunmadan ulasabilmek icin bize bir KOPRU lazim (interface)
     public interface GithubGistsInterface{

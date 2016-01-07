@@ -13,12 +13,12 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.http.GET;
 import retrofit.Callback;
+import android.app.ListActivity;
 
-public class P004RetrofitAndJson extends Activity {
+public class P004RetrofitAndJson extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.p001retrofitrestadapterlist);
 
         RestAdapter restAdapter=new RestAdapter.Builder()
                 .setEndpoint("http://services.hanselandpetal.com")
@@ -28,10 +28,9 @@ public class P004RetrofitAndJson extends Activity {
         service.getFeed(new Callback<List<Flower>>() {
             @Override
             public void success(List<Flower> flowers, Response response) {
-                ListView listViewP001 = (ListView) findViewById(R.id.listViewP001);
-                ArrayAdapter arrayAdapter = new ArrayAdapter(P004RetrofitAndJson.this, android.R.layout.simple_list_item_1);
-                listViewP001.setAdapter(arrayAdapter);
+                ArrayAdapter arrayAdapter = new ArrayAdapter(P004RetrofitAndJson.this, android.R.layout.simple_list_item_1); //ArrayAdapter<Object> yazmana gerek yok
                 arrayAdapter.addAll(flowers);
+                setListAdapter(arrayAdapter);
             }
 
             @Override
