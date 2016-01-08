@@ -74,19 +74,3 @@ public class P201ApiStack extends Activity {
         }
     }
 }
-
-/*
-
-String katar= "AccountId="+p201UsersStrong.items.get("account_id").toString()+
-        "DisplayName="+p201UsersStrong.items.get("display_name").toString()+
-        "Age="+p201UsersStrong.items.get("age").toString();
-*/
-
-/*
-StringBuilder sb=new StringBuilder();
-for(int i=0;i<3;i++){
-        sb.append("\nAccountId=" + p201UsersStrongList.get(i).items.get("account_id").toString() +
-        "\nDisplayName="+p201UsersStrongList.get(i).items.get("display_name").toString()+
-        "\nAge="+p201UsersStrongList.get(i).items.get("age").toString());
-        }
-*/

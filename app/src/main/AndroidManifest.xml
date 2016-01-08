@@ -55,6 +55,8 @@
 
         <activity android:name=".P201ApiStack"></activity>
 
+        <activity android:name=".P202ApiStackDetails"></activity>
+
     </application>
 
 </manifest>
