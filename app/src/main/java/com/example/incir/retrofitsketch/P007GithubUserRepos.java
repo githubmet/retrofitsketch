@@ -2,6 +2,7 @@ package com.example.incir.retrofitsketch;
 
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -19,12 +20,10 @@ import java.util.Map;
 
 import com.google.gson.annotations.SerializedName;
 
-public class P007GithubUserRepos extends Activity {
+public class P007GithubUserRepos extends ListActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.p007githubuserrepos);
-        final ListView listViewP007= (ListView)findViewById(R.id.listViewP007);
         Endpoint endpoint=new Endpoint() {
             @Override
             public String getUrl() {
@@ -45,7 +44,7 @@ public class P007GithubUserRepos extends Activity {
             @Override
             public void success(List<GithubReposStrong> githubReposStrongList, Response response) {
                 ArrayAdapter arrayAdapter=new P007ArrayAdapterRepos(getApplicationContext(),R.layout.p007githubreposcustomrow,githubReposStrongList);
-                listViewP007.setAdapter(arrayAdapter);
+                setListAdapter(arrayAdapter);
             }
 
             @Override

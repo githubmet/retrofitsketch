@@ -22,7 +22,6 @@ public class P008ArrayAdapterPublicGists extends ArrayAdapter<P008GithubPublicGi
         super(context, resource,githubPublicGistsStrongList);
         this.githubPublicGistsStrongList=githubPublicGistsStrongList;
         this.context=context;
-
     }
 
     @Override
@@ -44,27 +43,14 @@ public class P008ArrayAdapterPublicGists extends ArrayAdapter<P008GithubPublicGi
         for(P008GithubPublicGists.filesStrong gex : hashMapfilesStrong.values()){
             katar +="FileName="+ gex.getFilename()+"\nType="+gex.getType()+"\nLanguage="+gex.getLanguage();
         }
+     /*   P008GithubPublicGists.filesStrong gex=(P008GithubPublicGists.filesStrong )hashMapfilesStrong.values();
+        String katar="FileName="+ gex.getFilename()+"\nType="+gex.getType()+"\nLanguage="+gex.getLanguage();*/    //bu sekilde olmuyor.
         textViewFilesP008.setText(katar);
-
-
 
         return view;
     }
 }
 
-/*
-Map<String,String> mapGithubGistOwner= githubPublicGistsStrong.getMyMapOwner();
-String loginId=String.valueOf(mapGithubGistOwner.get("id"));
-String login=String.valueOf(mapGithubGistOwner.get("login"));
-textViewOwnerIdP008.setText(loginId);
-textViewOwnerLoginP008.setText(login);
-
-String imageUrl=String.valueOf(mapGithubGistOwner.get("avatar_url"));
-Picasso.with(context)
-.load(imageUrl)
-.resize(300, 300)
-.into(imageViewGistsCustomRowP008);
-*/
 
 
 

@@ -2,6 +2,7 @@ package com.example.incir.retrofitsketch;
 
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
@@ -20,13 +21,10 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 
-public class P008GithubPublicGists extends Activity {
+public class P008GithubPublicGists extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.p008githubpublicgists);
-
-        final ListView listViewPublicGistsP008=(ListView)findViewById(R.id.listViewPublicGistsP008);
 
         Endpoint endpoint=new Endpoint() {
             @Override
@@ -49,7 +47,7 @@ public class P008GithubPublicGists extends Activity {
             public void success(List<GithubPublicGistsStrong> githubPublicGistsStrongs, Response response) {
 
                 ArrayAdapter arrayAdapter= new P008ArrayAdapterPublicGists(getApplicationContext(),R.layout.p008publicgistscustomrow,githubPublicGistsStrongs);
-                listViewPublicGistsP008.setAdapter(arrayAdapter);
+                setListAdapter(arrayAdapter);
             }
             @Override
             public void failure(RetrofitError retrofitError) {
@@ -102,22 +100,6 @@ public class P008GithubPublicGists extends Activity {
     }
 }
 
-/*
-@SerializedName("owner")
-private Map<String, String> MyMapOwner;
-
-    public GithubPublicGistsStrong() {
-    }
-
-    public Map<String, String> getMyMapOwner() {
-        if(MyMapOwner.isEmpty()){
-            MyMapOwner.put("id","Null");
-            MyMapOwner.put("login","Null");
-            MyMapOwner.put("avatar_url","https://avatars.githubusercontent.com/u/9884282?v=3");
-        }
-        return MyMapOwner;
-    }
-*/
 
 
 

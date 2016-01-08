@@ -25,7 +25,7 @@ public class P011ShowUserInfo extends Activity {
         String[] katarDizi= bundle.getStringArray("katar");
         Picasso.with(getApplicationContext())
                 .load(katarDizi[2])
-                .resize(100,100)
+                .resize(200,200)
                 .into(imageViewShowUserP011);
 
         StringBuilder sb=new StringBuilder();

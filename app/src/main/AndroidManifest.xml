@@ -39,8 +39,6 @@
         <activity android:name=".P009GithubUsers"></activity>
         <activity android:name=".P009UserInfo"></activity>
 
-        <activity android:name=".P010GithubGistsPublicAllInfo"></activity>
-
         <activity android:name=".P011UserSearch"></activity>
         <activity android:name=".P011GetUserInfo"></activity>
         <activity android:name=".P011ShowUserInfo"></activity>

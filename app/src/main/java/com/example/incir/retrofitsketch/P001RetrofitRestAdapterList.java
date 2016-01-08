@@ -1,10 +1,8 @@
 package com.example.incir.retrofitsketch;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import java.util.HashMap;
 import java.util.List;

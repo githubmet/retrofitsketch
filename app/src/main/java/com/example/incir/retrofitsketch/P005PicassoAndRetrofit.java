@@ -19,7 +19,7 @@ import retrofit.client.Response;
 import retrofit.http.GET;
 
 
-public class P005PicassoAndRetrofit extends ListActivity { //Activity {
+public class P005PicassoAndRetrofit extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +55,6 @@ public class P005PicassoAndRetrofit extends ListActivity { //Activity {
         private String instructions;
         private double price;
         private String photo;
-        private Bitmap bitmap;
 
         public int getProductId() {
             return productId;
@@ -80,38 +79,5 @@ public class P005PicassoAndRetrofit extends ListActivity { //Activity {
         public String getPhoto() {
             return photo;
         }
-
-        public Bitmap getBitmap() {
-            return bitmap;
-        }
-
-        public void setProductId(int productId) {
-            this.productId = productId;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public void setCategory(String category) {
-            this.category = category;
-        }
-
-        public void setInstructions(String instructions) {
-            this.instructions = instructions;
-        }
-
-        public void setPrice(double price) {
-            this.price = price;
-        }
-
-        public void setPhoto(String photo) {
-            this.photo = photo;
-        }
-
-        public void setBitmap(Bitmap bitmap) {
-            this.bitmap = bitmap;
-        }
     }
-
 }

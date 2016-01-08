@@ -46,8 +46,10 @@ public class P003RetrofitRestAdapterUserDetails extends Activity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         UserSummary summary=(UserSummary)listAdapter.getItem(position);
-                        //service.getUser(summary.login);   //bunu cozmek icin Async yapmaliyiz
-
+/*
+UsersDetails usersDetails= service.getUser(summary.login);
+Toast.makeText(getApplicationContext(), usersDetails.location,Toast.LENGTH_LONG).show();   //buda asagidaki ile ayni sonucu veriyor
+*/
                         service.getUserAsync(summary.login, new Callback<UsersDetails>() {
                             @Override
                             public void success(UsersDetails usersDetails, Response response) {
@@ -64,29 +66,7 @@ public class P003RetrofitRestAdapterUserDetails extends Activity {
         );
 
     }
-
-    private class Gist{
-        public String id;
-        public HashMap<String, GistFile> files;  //eger files a baska bir isim vermek istiyor isen @serialzi.. attribute kullan
-
-        @Override
-        public String toString() {
-            String output=id + ": ";
-            for(Map.Entry<String,GistFile> file: files.entrySet()){
-                output +=file.getKey()+"="+file.getValue().type+", ";
-            }
-            return output;
-        }
-    }
-    private class GistFile{
-        public String type;
-        public String filename;
-    }
-
     public interface GithubService{
-        @GET("/gists/public")  //url lin ednpoint ini belirtioyruz
-        List<Gist> getPublicGist();
-
         @GET("/search/users")
         UsersSearchResult searchUsers(@Query("q") String query);
 
@@ -95,24 +75,11 @@ public class P003RetrofitRestAdapterUserDetails extends Activity {
 
         @GET("/users/{username}")  //asenkronize aradaki tek fark callBack
         void  getUserAsync (@Path("username")String username, Callback<UsersDetails> callback);
-
-
     }
     private class UsersDetails{
-        public String id;
         public String location;
-
-        @Override
-        public String toString() {
-            return "UsersDetails{" +
-                    "id='" + id + '\'' +
-                    ", location='" + location + '\'' +
-                    '}';
-        }
     }
     private class UsersSearchResult{
-        public int total_count;
-        public boolean incomplte_result;
         public List<UserSummary> items;
     }
     private class UserSummary{
@@ -121,9 +88,8 @@ public class P003RetrofitRestAdapterUserDetails extends Activity {
 
         @Override
         public String toString() {
-            return "UserSummary ( "+"loginid= '"+login+"', id='"+id+"' )";
+            return "loginid="+login+"\nid="+id;
         }
-
     }
 }
 

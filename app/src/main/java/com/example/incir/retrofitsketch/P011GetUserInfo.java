@@ -44,18 +44,19 @@ public class P011GetUserInfo extends Activity {
 
         UserClass userClass= service.getUserItems(userName);
          List<UserItemsClass> userItemsClasses= userClass.items;
-        for(int i=0;i<userItemsClasses.size();i++){
-            dizi=new String []{userItemsClasses.get(i).getId(),userItemsClasses.get(i).getLogin(),userItemsClasses.get(i).getAvatar_url(),userItemsClasses.get(i).getUrl(),
-                    userItemsClasses.get(i).getHtml_url(),userItemsClasses.get(i).getFollowers_url(),userItemsClasses.get(i).getFollowing_url(),userItemsClasses.get(i).getGists_url(),
-                    userItemsClasses.get(i).getStarred_url(),userItemsClasses.get(i).getSubscriptions_url(),userItemsClasses.get(i).getOrganizations_url(),
-                    userItemsClasses.get(i).getRepos_url(),userItemsClasses.get(i).getEvents_url(),userItemsClasses.get(i).getEvents_url(),userItemsClasses.get(i).getReceived_events_url(),
-                    userItemsClasses.get(i).getType(),userItemsClasses.get(i).getSite_admin(),userItemsClasses.get(i).getScore()};
-        }
+        ////for(int i=0;i<userItemsClasses.size();i++){   //eger bu sekilde bir arama yaparsan ilgili enson eleman gosterilir. Aradigini bulamazsin.
+        ////Ornek ben githubmet ararim o bana githubmeteorz gosterir
+            dizi=new String []{userItemsClasses.get(0).getId(),userItemsClasses.get(0).getLogin(),userItemsClasses.get(0).getAvatar_url(),userItemsClasses.get(0).getUrl(),
+                    userItemsClasses.get(0).getHtml_url(),userItemsClasses.get(0).getFollowers_url(),userItemsClasses.get(0).getFollowing_url(),userItemsClasses.get(0).getGists_url(),
+                    userItemsClasses.get(0).getStarred_url(),userItemsClasses.get(0).getSubscriptions_url(),userItemsClasses.get(0).getOrganizations_url(),
+                    userItemsClasses.get(0).getRepos_url(),userItemsClasses.get(0).getEvents_url(),userItemsClasses.get(0).getEvents_url(),userItemsClasses.get(0).getReceived_events_url(),
+                    userItemsClasses.get(0).getType(),userItemsClasses.get(0).getSite_admin(),userItemsClasses.get(0).getScore()};
+        ////}
 
 
         // String[] dizi=new String[]{"1","2","3","4","5","6","1","1","1","1","1","1","1","1","1","1","1","1"};  //kontrol tamam
         Intent intent2=new Intent(getApplicationContext(),P011ShowUserInfo.class);
-        intent2.putExtra("katar",dizi);
+        intent2.putExtra("katar", dizi);
         startActivity(intent2);
 
     }
@@ -64,7 +65,9 @@ public class P011GetUserInfo extends Activity {
         UserClass getUserItems(@Query("q") String query);//, Callback<UserItemsClass> callback);
     }
     public class UserClass{
-        public List<UserItemsClass> items;
+        public List<UserItemsClass> items;  //bilginden fazlasini tarama hataya sebep olur
+        //acaba Map<String,String> kullanip tum verileri cekse idik daha iyi yapardik gibi. Hadi yapalim
+        //Map<String,String> items;  //olmadi  mapUser.get("type").toString() seklinde cekecektik olmadi
 
     }
     public class UserItemsClass{

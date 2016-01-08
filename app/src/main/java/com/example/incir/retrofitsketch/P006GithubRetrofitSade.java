@@ -1,6 +1,7 @@
 package com.example.incir.retrofitsketch;
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -16,12 +17,10 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-public class P006GithubRetrofitSade extends Activity {
+public class P006GithubRetrofitSade extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.p006githubretrofitsade);
-
         Endpoint endpoint=new Endpoint() {
             @Override
             public String getUrl() {
@@ -44,9 +43,7 @@ public class P006GithubRetrofitSade extends Activity {
             @Override
             public void success(List<GithubStronglyClass> githubStronglyClasses, Response response) {
                 ArrayAdapter arrayAdapter = new P006GithubArrayAdapter(getApplicationContext(),R.layout.p006githubcustomrow,githubStronglyClasses);
-                ListView listViewSadeP006 = (ListView) findViewById(R.id.listViewSadeP006);
-                listViewSadeP006.setAdapter(arrayAdapter);
-
+                setListAdapter(arrayAdapter);
             }
 
             @Override
@@ -66,11 +63,9 @@ public class P006GithubRetrofitSade extends Activity {
         private String myId;
         @SerializedName("description")
         private String MyDescription;
-
         public String getMyId() {
             return myId;
         }
-
         public String getMyDescription() {
             return MyDescription;
         }
