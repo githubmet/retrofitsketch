@@ -10,15 +10,14 @@
         <item>P007GithubUserRepos</item>
         <item>P008GithubPublicGists</item>
         <item>P009GithubUsers</item>
-
         <item>P011UserSearch</item>
 
         <item>P123PicassoAndRetrofit</item>
         <item>P124MapExample</item>
         <item>P125RawListSetListAdapter</item>
-        <item>P007</item>
-        <item>P008</item>
-        <item>P009</item>
-        <item>P010</item>
+
+        <item>P200ApiStackexchange</item>
+        <item>P201ApiStack</item>
+
     </string-array>
 </resources>

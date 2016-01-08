@@ -51,6 +51,10 @@
 
         <activity android:name=".P125RawListSetListAdapter"></activity>
 
+        <activity android:name=".P200ApiStackexchange"></activity>
+
+        <activity android:name=".P201ApiStack"></activity>
+
     </application>
 
 </manifest>
