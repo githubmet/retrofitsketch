@@ -31,7 +31,7 @@ public class P202ArrayAdapter extends ArrayAdapter<P202ApiStackDetails.P202Items
         ImageView imageViewP202=(ImageView) view.findViewById(R.id.imageViewP202);
         TextView textViewP202=(TextView)view.findViewById(R.id.textViewP202);
 
-        P202ApiStackDetails.P202ItemsStrong p202ItemsStrong= p202ItemsStrongList.get(position);
+        P202ApiStackDetails.P202ItemsStrong p202ItemsStrong= p202ItemsStrongList.get(position);  //dikkat List in tek elemanina buradaki position ile ulasiyoruz.
 
         String katar="DisplayName="+p202ItemsStrong.getDisplay_name()+"\nLocation="+p202ItemsStrong.getLocation()+"\nAge="+p202ItemsStrong.getAge();
         textViewP202.setText(katar);

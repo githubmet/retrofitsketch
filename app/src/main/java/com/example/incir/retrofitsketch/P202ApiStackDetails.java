@@ -57,9 +57,6 @@ public class P202ApiStackDetails extends ListActivity {
 
             }
         });
-
-
-
     }
     public interface P202UsersInterface{    //managing url calls
         @GET("/2.2/users?order=desc&sort=reputation&site=stackoverflow")
@@ -79,15 +76,12 @@ public class P202ApiStackDetails extends ListActivity {
         public String getDisplay_name() {
             return display_name;
         }
-
         public String getLocation() {
             return location;
         }
-
         public String getAge() {
             return age;
         }
-
         public String getProfile_image() {
             return profile_image;
         }

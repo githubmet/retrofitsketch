@@ -19,6 +19,7 @@
         <item>P200ApiStackexchange</item>
         <item>P201ApiStack</item>
         <item>P202ApiStackDetails</item>
+        <item>P203ApiStyle</item>
 
     </string-array>
 </resources>
