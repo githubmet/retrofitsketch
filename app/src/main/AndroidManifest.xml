@@ -2,13 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.incir.retrofitsketch">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+
+        android:name=".backbone.AddObjectToApp"
+        >
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -24,8 +26,6 @@
 
         <activity android:name=".P002RetrofitRestAdapterUserSearch"></activity>
 
-        <activity android:name=".P003RetrofitRestAdapterUserDetails"></activity>
-
         <activity android:name=".P004RetrofitAndJson"></activity>
 
         <activity android:name=".P005PicassoAndRetrofit"></activity>
@@ -40,25 +40,17 @@
         <activity android:name=".P009UserInfo"></activity>
 
         <activity android:name=".P011UserSearch"></activity>
-        <activity android:name=".P011GetUserInfo"></activity>
         <activity android:name=".P011ShowUserInfo"></activity>
 
+        <activity android:name=".P012StackexchageQuato"></activity>
 
+        <activity android:name=".P013StackexchageItemsDetails"></activity>
 
-        <activity android:name=".P123PicassoAndRetrofit"></activity>
+        <activity android:name=".P014StackexchangeSites"></activity>
 
-        <activity android:name=".P124MapExample"></activity>
-
-        <activity android:name=".P125RawListSetListAdapter"></activity>
-
-        <activity android:name=".P200ApiStackexchange"></activity>
-
-        <activity android:name=".P201ApiStack"></activity>
-
-        <activity android:name=".P202ApiStackDetails"></activity>
-
-        <activity android:name=".P203ApiStyle"></activity>
 
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
 </manifest>

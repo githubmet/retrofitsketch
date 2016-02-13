@@ -1,74 +1,40 @@
 package com.example.incir.retrofitsketch;
 
-import android.app.Activity;
-import android.app.ListActivity;
-import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
-import retrofit.RestAdapter;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
-import retrofit.http.GET;
-import retrofit.Callback;
-import retrofit.Endpoint;
+import android.os.Bundle;
+import android.widget.ListView;
+import android.widget.ArrayAdapter;
+
+import com.example.incir.retrofitsketch.adapter.P006GithubArrayAdapter;
+import com.example.incir.retrofitsketch.backbone.AddMtdToAppCompatActivity;
+import com.example.incir.retrofitsketch.model.GithubPublicGistsStrong;
 
 import java.util.List;
 
-import com.google.gson.annotations.SerializedName;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
-public class P006GithubRetrofitSade extends ListActivity {
+public class P006GithubRetrofitSade extends AddMtdToAppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Endpoint endpoint=new Endpoint() {
+        setContentView(R.layout.p006githubretrofitsade);
+
+        final ListView listViewP006= (ListView)findViewById(R.id.listViewP006);
+
+        getGithubNetwork().getGithubPublicGistsStrongCallback(new Callback<List<GithubPublicGistsStrong>>() {
             @Override
-            public String getUrl() {
-                return "https://api.github.com";
+            public void success(List<GithubPublicGistsStrong> githubPublicGistsStrongs, Response response) {
+                ArrayAdapter arrayAdapter= new P006GithubArrayAdapter(P006GithubRetrofitSade.this,
+                        R.layout.p006githubcustomrow,githubPublicGistsStrongs);
+                listViewP006.setAdapter(arrayAdapter);
             }
 
             @Override
-            public String getName() {
-                return null;
-            }
-        };
-
-
-        RestAdapter restAdapter=new RestAdapter.Builder()
-                .setEndpoint(endpoint.getUrl()) //endpoint daha once tanimlanmali.
-                .build();
-
-        GithubInterface service=restAdapter.create(GithubInterface.class);
-        service.getGithubData(new Callback<List<GithubStronglyClass>>() {
-            @Override
-            public void success(List<GithubStronglyClass> githubStronglyClasses, Response response) {
-                ArrayAdapter arrayAdapter = new P006GithubArrayAdapter(getApplicationContext(),R.layout.p006githubcustomrow,githubStronglyClasses);
-                setListAdapter(arrayAdapter);
-            }
-
-            @Override
-            public void failure(RetrofitError retrofitError) {
+            public void failure(RetrofitError error) {
 
             }
         });
     }
-
-    public interface GithubInterface{
-        @GET("/gists/public")  //url lin ednpoint ini belirtioyruz
-        void getGithubData(Callback <List<GithubStronglyClass>> callback);
-    }
-
-    public class GithubStronglyClass{
-        @SerializedName("id")
-        private String myId;
-        @SerializedName("description")
-        private String MyDescription;
-        public String getMyId() {
-            return myId;
-        }
-        public String getMyDescription() {
-            return MyDescription;
-        }
-    }
-
 }

@@ -1,6 +1,51 @@
 package com.example.incir.retrofitsketch;
 
 
+import android.os.Bundle;
+import android.widget.ListView;
+import android.widget.ArrayAdapter;
+
+import com.example.incir.retrofitsketch.adapter.P008ArrayAdapterPublicGists;
+import com.example.incir.retrofitsketch.backbone.AddMtdToAppCompatActivity;
+import com.example.incir.retrofitsketch.model.GithubGistsStrong;
+
+import java.util.List;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
+public class P008GithubPublicGists extends AddMtdToAppCompatActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.p008githubpublicgists);
+
+        final ListView listViewP008=(ListView)findViewById(R.id.listViewP008);
+
+        getGithubNetwork().getGithubGistsPublicListCallback(new Callback<List<GithubGistsStrong>>() {
+            @Override
+            public void success(List<GithubGistsStrong> githubGistsStrongs, Response response) {
+                ArrayAdapter arrayAdapter=new P008ArrayAdapterPublicGists(
+                  P008GithubPublicGists.this,
+                        R.layout.p008publicgistscustomrow,githubGistsStrongs
+                );
+                listViewP008.setAdapter(arrayAdapter);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
+    }
+}
+
+
+
+
+/*
+
 import android.app.Activity;
 import android.app.ListActivity;
 import android.os.Bundle;
@@ -100,49 +145,4 @@ public class P008GithubPublicGists extends ListActivity {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/

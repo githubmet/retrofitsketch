@@ -1,5 +1,47 @@
 package com.example.incir.retrofitsketch;
 
+import android.os.Bundle;
+import android.widget.ListView;
+import android.widget.ArrayAdapter;
+
+import com.example.incir.retrofitsketch.adapter.P007ArrayAdapterRepos;
+import com.example.incir.retrofitsketch.backbone.AddMtdToAppCompatActivity;
+import com.example.incir.retrofitsketch.model.GithubUsersUserReposStrong;
+
+import java.util.List;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
+import android.widget.Toast;
+
+public class P007GithubUserRepos extends AddMtdToAppCompatActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.p007githubuserrepos);
+
+        final ListView listViewP007=(ListView)findViewById(R.id.listViewP007);
+        getGithubNetwork().getGithubUsersUserReposStrongCallback("githubmet", new Callback<List<GithubUsersUserReposStrong>>() {
+            @Override
+            public void success(List<GithubUsersUserReposStrong> githubUsersUserReposStrongList, Response response) {
+                ArrayAdapter arrayAdapter=new P007ArrayAdapterRepos(P007GithubUserRepos.this,
+                        R.layout.p007githubreposcustomrow,githubUsersUserReposStrongList);
+                listViewP007.setAdapter(arrayAdapter);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
+    }
+}
+
+
+
+/*
 
 import android.app.Activity;
 import android.app.ListActivity;
@@ -93,3 +135,4 @@ public class P007GithubUserRepos extends ListActivity{
         }
     }
 }
+*/

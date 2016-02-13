@@ -1,5 +1,6 @@
 package com.example.incir.retrofitsketch;
 
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +21,7 @@ public class P011UserSearch extends Activity {
         {
             userName="githubmet";
         }
-        Intent intent =new Intent(this,P011GetUserInfo.class);
+        Intent intent =new Intent(this,P011ShowUserInfo.class);
         intent.putExtra("userName",userName);
         startActivity(intent);
     }

@@ -7,10 +7,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewCustomRowP006"/>
+        android:id="@+id/textViewCustomRowIdP006"
+        android:textColor="#FFF"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewCustomRow2P006"/>
+        android:id="@+id/textViewCustomRowDescriptionP006"
+        android:textColor="#FFF"/>
 
 </LinearLayout>

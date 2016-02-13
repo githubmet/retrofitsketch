@@ -3,7 +3,6 @@
     <string-array name="activity_names">
         <item>P001RetrofitRestAdapterList</item>
         <item>P002RetrofitRestAdapterUserSearch</item>
-        <item>P003RetrofitRestAdapterUserDetails</item>
         <item>P004RetrofitAndJson</item>
         <item>P005PicassoAndRetrofit</item>
         <item>P006GithubRetrofitSade</item>
@@ -11,15 +10,8 @@
         <item>P008GithubPublicGists</item>
         <item>P009GithubUsers</item>
         <item>P011UserSearch</item>
-
-        <item>P123PicassoAndRetrofit</item>
-        <item>P124MapExample</item>
-        <item>P125RawListSetListAdapter</item>
-
-        <item>P200ApiStackexchange</item>
-        <item>P201ApiStack</item>
-        <item>P202ApiStackDetails</item>
-        <item>P203ApiStyle</item>
-
+        <item>P012StackexchageQuato</item>
+        <item>P013StackexchageItemsDetails</item>
+        <item>P014StackexchangeSites</item>
     </string-array>
 </resources>

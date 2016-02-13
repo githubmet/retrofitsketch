@@ -1,73 +1,68 @@
 package com.example.incir.retrofitsketch;
 
-
-import android.app.ListActivity;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import java.util.List;
+import com.example.incir.retrofitsketch.backbone.AddMtdToAppCompatActivity;
+import com.example.incir.retrofitsketch.model.GithubUserSearchStrong;
+import com.example.incir.retrofitsketch.model.GithubUsersDetailsStrong;
 
-import retrofit.RestAdapter;
-import retrofit.http.GET;
-import retrofit.http.Query;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
-public class P002RetrofitRestAdapterUserSearch extends ListActivity{
+
+public class P002RetrofitRestAdapterUserSearch extends AddMtdToAppCompatActivity implements
+View.OnClickListener,View.OnLongClickListener{
+
+    GithubUserSearchStrong githubUserSearchStrong;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        RelativeLayout relativeLayout=new RelativeLayout(this);
+        TextView textView=new TextView(this);
+        relativeLayout.addView(textView);
+        setContentView(relativeLayout);
+
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().build());
-        RestAdapter restAdapter=new RestAdapter.Builder()
-                .setEndpoint("https://api.github.com")
-                .build();
+        githubUserSearchStrong=
+                getGithubNetwork().getGithubUserSearchStrong("mojombo");
+        textView.setText(githubUserSearchStrong.toString());
 
-        GithubService service=restAdapter.create(GithubService.class);
-
-        ArrayAdapter<Object> arrayAdapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1);
-        setListAdapter(arrayAdapter);
-        arrayAdapter.addAll(service.searchUsers("nelsonlaquet").items);
+        textView.setOnClickListener(this);
+        textView.setOnLongClickListener(this);
     }
 
-    public interface GithubService{
-        @GET("/search/users")  //tum annotation lar icin ortak yazim sekli (" ") dir
-        UsersSearchResult searchUsers(@Query("q") String query);  //https://api.github.com/search/users?q=mojombo
+    @Override
+    public void onClick(View v) {
+        String userName=githubUserSearchStrong.items.get(0).getLogin();
+        GithubUsersDetailsStrong githubUsersDetailsStrong= getGithubNetwork().
+                getGithubUsersDetailsStrong(userName);
+        String katar="onClick\nId="+githubUsersDetailsStrong.getId()+"\nlogin="+
+                githubUsersDetailsStrong.getLogin()+"\n";
+        Toast.makeText(P002RetrofitRestAdapterUserSearch.this,katar,Toast.LENGTH_LONG).show();
     }
-    private class UsersSearchResult{
-        public List<UserSummary> items;
-    }
-    private class UserSummary{
-        public String login;
-        public String id;
 
-        @Override
-        public String toString() {
-            return ("loginid=" + login + "\nid=" + id);
-        }
+    @Override
+    public boolean onLongClick(View v) {
+        String userName=githubUserSearchStrong.items.get(0).getLogin();
+        getGithubNetwork().getGithubUserDetailsStrongCallBack(userName, new Callback<GithubUsersDetailsStrong>() {
+            @Override
+            public void success(GithubUsersDetailsStrong githubUsersDetailsStrong, Response response) {
+                String katar="OnLongClick\nlogin="+githubUsersDetailsStrong.getLogin()+"\nId="+githubUsersDetailsStrong.getId()+"\n";
+                Toast.makeText(P002RetrofitRestAdapterUserSearch.this,katar,Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
+        return true;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

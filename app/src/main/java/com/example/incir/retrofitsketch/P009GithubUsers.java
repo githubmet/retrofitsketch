@@ -1,5 +1,47 @@
 package com.example.incir.retrofitsketch;
 
+import android.os.Bundle;
+import android.widget.ListView;
+import android.widget.ArrayAdapter;
+
+import com.example.incir.retrofitsketch.backbone.AddMtdToAppCompatActivity;
+import com.example.incir.retrofitsketch.model.GithubUsersStrong;
+
+import java.util.List;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
+public class P009GithubUsers extends AddMtdToAppCompatActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.p009githubusers);
+
+        final ListView listViewUsersP009=(ListView)findViewById(R.id.listViewUsersP009);
+
+        getGithubNetwork().getGithubUsersStrongCallBackList(new Callback<List<GithubUsersStrong>>() {
+            @Override
+            public void success(List<GithubUsersStrong> githubUsersStrongs, Response response) {
+                ArrayAdapter arrayAdapter=new P009ArrayAdapterUsersP009(getApplicationContext(),
+                        R.layout.p009githubuserscustomrow,githubUsersStrongs);
+                listViewUsersP009.setAdapter(arrayAdapter);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
+
+    }
+}
+
+
+
+/*
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -180,3 +222,4 @@ public class P009GithubUsers extends Activity implements AdapterView.OnItemClick
     }
 
 }
+*/

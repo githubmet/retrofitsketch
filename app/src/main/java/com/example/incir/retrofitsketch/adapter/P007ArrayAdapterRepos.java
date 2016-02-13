@@ -1,4 +1,67 @@
-package com.example.incir.retrofitsketch;
+package com.example.incir.retrofitsketch.adapter;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+import android.view.LayoutInflater;
+import android.widget.ImageView;
+
+import com.example.incir.retrofitsketch.R;
+import com.example.incir.retrofitsketch.model.GithubUsersUserReposStrong;
+
+import java.util.List;
+import java.util.Map;
+
+public class P007ArrayAdapterRepos extends ArrayAdapter<GithubUsersUserReposStrong>{
+    List<GithubUsersUserReposStrong> githubUsersUserReposStrongList;
+    Context context;
+    public P007ArrayAdapterRepos(Context context, int resource,List<GithubUsersUserReposStrong>
+                                 githubUsersUserReposStrongList) {
+
+        super(context, resource,githubUsersUserReposStrongList);
+        this.githubUsersUserReposStrongList=githubUsersUserReposStrongList;
+        this.context=context;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        LayoutInflater layoutInflater=(LayoutInflater)context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view= layoutInflater.inflate(R.layout.p007githubreposcustomrow,parent,false);
+        //TextView textViewKatarP007=(TextView)view.findViewById(R.id.textViewKatarP007);
+        TextView textViewDescriptionP007=(TextView)view.findViewById(R.id.textViewDescriptionP007);
+       // ImageView imageViewCustomRowP007=(ImageView)view.findViewById(R.id.imageViewCustomRowP007);
+/*
+
+        StringBuilder sb=new StringBuilder();
+        sb.append("Id="+githubUsersUserReposStrongList.get(position).getId()+"\n"+
+                "FullName="+githubUsersUserReposStrongList.get(position).getFull_name()+"\n"+
+                "Name="+githubUsersUserReposStrongList.get(position).getName()+"\n"+
+                "FullName="+githubUsersUserReposStrongList.get(position)+"\n");*/
+/*        for(Map.Entry<String,GithubUsersUserReposStrong.OwnerDetail> gex:
+                githubUsersUserReposStrongList.get(position).getOwner().entrySet()){
+            sb.append("Id2="+gex.getValue().getId()+"\nLogin="+gex.getValue().getLogin());
+        }*/
+        //textViewKatarP007.setText(sb.toString());
+
+        String description=githubUsersUserReposStrongList.get(position).getDescription();
+        textViewDescriptionP007.setText("denemeNNN");
+
+        return view;
+    }
+}
+
+
+
+
+
+
+
+
+/*
 
 import android.content.Context;
 import android.view.View;
@@ -58,3 +121,4 @@ public class P007ArrayAdapterRepos extends ArrayAdapter<P007GithubUserRepos.Gith
         return view;
     }
 }
+*/
